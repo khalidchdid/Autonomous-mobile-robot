@@ -1,6 +1,6 @@
 # Autonomous mobile robot
 
-Modal project by Thanh Phuong Diep and Khalid Akhmouch, May 2025. A Raspberry Pi robot first follows a red and blue line, then plays goalkeeper as Casillas: one fixed camera, three DC motors, and a reactive intercept of a red ball.
+A Raspberry Pi robot first follows a red and blue line, then plays goalkeeper as Casillas: one fixed camera, three DC motors, and a reactive intercept of a red ball.
 
 The lab folder contained the written report, the defense slides, a Grove I2C motor-driver library, a short C++ exercise, and two OpenCV links. It did not contain the onboard robot program. This repo keeps the project’s measurements, control laws, and the 18 recorded shots in code.
 
