@@ -2,8 +2,7 @@
 
 A Raspberry Pi robot first follows a red and blue line, then plays goalkeeper as Casillas: one fixed camera, three DC motors, and a reactive intercept of a red ball.
 
-The C++ from the lab folder is in this repo. `cpp/` is the course exercise (`main.cpp`, `lib.cpp`, `lib.hpp`, `Makefile`). `grove-i2c-motor-driver/` is the Seeed Grove I2C motor-driver library, the C++ that talks to the L298P boards: speed on register `0x82`, direction on register `0xaa`, default address `0x0f`. The Python under `robot/` is the control laws and the 18 shots taken from the report, not a translation of that C++.
-
+The C++ from the lab folder is in this repo. `cpp/` is the course exercise (`main.cpp`, `lib.cpp`, `lib.hpp`, `Makefile`). `grove-i2c-motor-driver/` is the Seeed Grove I2C motor-driver library, the C++ that talks to the L298P boards: speed on register `0x82`, direction on register `0xaa`, default address `0x0f`. The Python under `robot/` is the control laws and the 18 shots taken from the report.
 ## Platform
 
 The chassis is 20 cm by 30 cm by 8 cm. A Raspberry Pi 4 and a PiCamera V2 (640×480 at 30 fps) sit 8 cm off the ground. Two rear DG01D-E motors and one front motor are driven by Grove L298P boards over I2C, using wiringPi. Rear wheels are at address `0x0f`, the front wheel at `0x0d`. Speed is register `0x82`. Direction is register `0xaa`.
