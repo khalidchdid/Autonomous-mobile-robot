@@ -2,7 +2,7 @@
 
 A Raspberry Pi robot first follows a red and blue line, then plays goalkeeper as Casillas: one fixed camera, three DC motors, and a reactive intercept of a red ball.
 
-The lab folder contained the written report, the defense slides, a Grove I2C motor-driver library, a short C++ exercise, and two OpenCV links. It did not contain the onboard robot program. This repo keeps the project’s measurements, control laws, and the 18 recorded shots in code.
+The C++ from the lab folder is in this repo. `cpp/` is the course exercise (`main.cpp`, `lib.cpp`, `lib.hpp`, `Makefile`). `grove-i2c-motor-driver/` is the Seeed Grove I2C motor-driver library, the C++ that talks to the L298P boards: speed on register `0x82`, direction on register `0xaa`, default address `0x0f`. The Python under `robot/` is the control laws and the 18 shots taken from the report, not a translation of that C++.
 
 ## Platform
 
@@ -56,6 +56,12 @@ Each frame captures, measures `(x, z)`, applies that law, compensates the PWM de
 A stop means the ball arrived within 10 cm of the robot’s center. The report’s rule predicts a stop when the shot is within 20° of straight, slower than 50 cm/s, and taken from at least 60 cm. On the 18 trials in `data/trials.csv` that rule scores 55.6%, with 0 false alarms and 8 misses. Short, fast shots are the ones that get through.
 
 The printed error fit is `E = -15.82 + 0.082 d + 0.205 θ + 0.227 v`, with a stated MAE of about 4.4 cm. Speed and angle dominate the miss. The conclusion is that the motors cannot reach the roughly 2 m/s a fast shot from 70 cm would demand. A later version would need a faster drive, a real-time microcontroller, and a linear rail instead of wheels.
+
+## C++
+
+`cpp/` builds with `make` if `lib.cpp` is filled in. The header currently repeats `affichage` and includes itself, so it does not compile as it stands.
+
+The motor library is Arduino C++. Copy `grove-i2c-motor-driver/` into the Arduino libraries folder, then use the examples under `examples/`. `dcmotor_test_withoutLibrary` writes the same two registers the robot uses.
 
 ## Run
 
