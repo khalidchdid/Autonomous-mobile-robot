@@ -60,13 +60,3 @@ The printed error fit is `E = -15.82 + 0.082 d + 0.205 θ + 0.227 v`, with a sta
 `cpp/` builds with `make` if `lib.cpp` is filled in. The header currently repeats `affichage` and includes itself, so it does not compile as it stands.
 
 The motor library is Arduino C++. Copy `grove-i2c-motor-driver/` into the Arduino libraries folder, then use the examples under `examples/`. `dcmotor_test_withoutLibrary` writes the same two registers the robot uses.
-
-## Run
-
-No packages beyond Python 3:
-
-```bash
-python -m robot.evaluate
-```
-
-`robot/control.py` and `robot/vision.py` are the same laws as the report, as plain functions. `robot/parameters.py` holds the calibrated constants.
